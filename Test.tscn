@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuanppp8el7lu"]
+[gd_scene load_steps=4 format=3 uid="uid://cuanppp8el7lu"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2cvto"]
+[ext_resource type="SpriteFrames" uid="uid://dd3pco6tviy8l" path="res://Spritesheets/LaimaSprite.tres" id="1_6yt72"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="2_u7vfy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60nd7"]
+size = Vector2(37, 34)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_2cvto")
+sprite_frames = ExtResource("1_6yt72")
+frame = 3
+frame_progress = 0.263325
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="AnimatedSprite2D"]
+script = ExtResource("2_u7vfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/CharacterBody2D"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_60nd7")
